@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { useRecoilState } from "recoil";
+import topTenCalegHandler from "../../utils/subaAxiosData/index.js";
+
 import {
   recoilVote,
   pkb1,
@@ -44,6 +46,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./content.css";
 const Content = () => {
   const [fetchCounter, setFetchCounter] = useState(1);
+  const [dataTopTenCaleg, setDataTopTenCaleg] = useState([]);
   // state untuk caleg semua caleg PKB
   const [data, setData] = useRecoilState(recoilVote);
   const [DataPkb1, setDataPkb1] = useRecoilState(pkb1);
@@ -89,6 +92,22 @@ const Content = () => {
   const [DataDemokrat, setDataDemokrat] = useRecoilState(demokrat);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const hasilToptenCaleg = await topTenCalegHandler();
+        setDataTopTenCaleg(hasilToptenCaleg);
+        console.log(dataTopTenCaleg);
+        // Lakukan sesuatu dengan dataCa
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    // console.log(`top ten caleg ${topTenCalegHandler()}`);
     const getData = async () => {
       try {
         const response = await fetch(
@@ -141,76 +160,77 @@ const Content = () => {
         setDataPkb7(totalPkb7);
         // Batas setDataPKB
 
-        // const AcehBesarData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Besar"
-        // );
-        // setDataAcehBesar(AcehBesarData[0].pkb2);
+        const AcehBesarData = data.filter(
+          (item) => item.kabupaten === "Aceh Besar"
+        );
 
-        // const AcehJayaData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Jaya"
-        // );
-        // setDataAcehJaya(AcehJayaData[0].pkb2);
+        setDataAcehBesar(AcehBesarData[0].pkb2);
 
-        // const AcehSingkilData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Singkil"
-        // );
-        // setDataAcehSingkil(AcehSingkilData[0].pkb2);
+        const AcehJayaData = data.filter(
+          (item) => item.kabupaten === "Aceh Jaya"
+        );
+        setDataAcehJaya(AcehJayaData[0].pkb2);
 
-        // const PidieData = data.filter((item) => item.kabupaten === "Pidie");
-        // setDataPidie(PidieData[0].pkb2);
+        const AcehSingkilData = data.filter(
+          (item) => item.kabupaten === "Aceh Singkil"
+        );
+        setDataAcehSingkil(AcehSingkilData[0].pkb2);
 
-        // const SubussalamData = data.filter(
-        //   (item) => item.kabupaten === "Subussalam"
-        // );
-        // setDataSubussalam(SubussalamData[0].pkb2);
+        const PidieData = data.filter((item) => item.kabupaten === "Pidie");
+        setDataPidie(PidieData[0].pkb2);
 
-        // const PidieJayaData = data.filter(
-        //   (item) => item.kabupaten === "Pidie Jaya"
-        // );
-        // setDataPidieJaya(PidieJayaData[0].pkb2);
+        const SubussalamData = data.filter(
+          (item) => item.kabupaten === "Subussalam"
+        );
+        setDataSubussalam(SubussalamData[0].pkb2);
 
-        // const SabangData = data.filter((item) => item.kabupaten === "Sabang");
-        // setDataAcehBarat(SabangData[0].pkb2);
+        const PidieJayaData = data.filter(
+          (item) => item.kabupaten === "Pidie Jaya"
+        );
+        setDataPidieJaya(PidieJayaData[0].pkb2);
 
-        // const GayoLuesData = data.filter(
-        //   (item) => item.kabupaten === "Gayo Lues"
-        // );
-        // setDataAcehBarat(GayoLuesData[0].pkb2);
+        const SabangData = data.filter((item) => item.kabupaten === "Sabang");
+        setDataSabang(SabangData[0].pkb2);
 
-        // const BandaAcehData = data.filter(
-        //   (item) => item.kabupaten === "Banda Aceh"
-        // );
-        // setDataBandaAceh(BandaAcehData[0].pkb2);
+        const GayoLuesData = data.filter(
+          (item) => item.kabupaten === "Gayo Lues"
+        );
+        setDataGayoLues(GayoLuesData[0].pkb2);
 
-        // const AcehBaratData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Barat"
-        // );
-        // setDataAcehBarat(AcehBaratData[0].pkb2);
+        const BandaAcehData = data.filter(
+          (item) => item.kabupaten === "Banda Aceh"
+        );
+        setDataBandaAceh(BandaAcehData[0].pkb2);
 
-        // const SimeulueData = data.filter(
-        //   (item) => item.kabupaten === "Simeulue"
-        // );
-        // setDataSimeulue(SimeulueData[0].pkb2);
+        const AcehBaratData = data.filter(
+          (item) => item.kabupaten === "Aceh Barat"
+        );
+        setDataAcehBarat(AcehBaratData[0].pkb2);
 
-        // const AcehSelatanData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Selatan"
-        // );
-        // setDataAcehSelatan(AcehSelatanData[0].pkb2);
+        const SimeulueData = data.filter(
+          (item) => item.kabupaten === "Simeulue"
+        );
+        setDataSimeulue(SimeulueData[0].pkb2);
 
-        // const AcehBaratDayaData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Barat Daya"
-        // );
-        // setDataAcehBaratDaya(AcehBaratDayaData[0].pkb2);
+        const AcehSelatanData = data.filter(
+          (item) => item.kabupaten === "Aceh Selatan"
+        );
+        setDataAcehSelatan(AcehSelatanData[0].pkb2);
 
-        // const NaganrayaData = data.filter(
-        //   (item) => item.kabupaten === "Nagan Raya"
-        // );
-        // setDataNaganRaya(NaganrayaData[0].pkb2);
+        const AcehBaratDayaData = data.filter(
+          (item) => item.kabupaten === "Aceh Barat Daya"
+        );
+        setDataAcehBaratDaya(AcehBaratDayaData[0].pkb2);
 
-        // const AcehTenggaraData = data.filter(
-        //   (item) => item.kabupaten === "Aceh Tenggara"
-        // );
-        // setDataAcehTenggara(AcehTenggaraData[0].pkb2);
+        const NaganrayaData = data.filter(
+          (item) => item.kabupaten === "Nagan Raya"
+        );
+        setDataNaganRaya(NaganrayaData[0].pkb2);
+
+        const AcehTenggaraData = data.filter(
+          (item) => item.kabupaten === "Aceh Tenggara"
+        );
+        setDataAcehTenggara(AcehTenggaraData[0].pkb2);
 
         // ================ batas state total kabupaten pak madan ========================
 
@@ -276,23 +296,47 @@ const Content = () => {
 
         const totalPpp = data.reduce((total, obj) => total + (obj.ppp || 0), 0);
         setDataPpp(totalPpp);
+
+        // Top Ten Data Caleg
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    getData();
-
     const intervalId = setInterval(() => {
-      console.log(`Fetching data ${fetchCounter}`);
       getData();
+      console.log(`Fetching data ${fetchCounter}`);
       setFetchCounter((prevCounter) => prevCounter + 1);
-    }, 2000); // 60000 milidetik = 1 menit
-
-    return () => clearInterval(intervalId);
+    }, 20000); // 60000 milidetik = 1 menit
   }, [setData]);
 
-  const now = 60;
+  // Nama Caleg
+  const namaCaleg = {
+    pkb1: "Irmawan, Sos.MM",
+    pkb2: "M Ramadhana Rusli Bintang, M.M",
+    pkb3: "Mahdalena, S.Hut",
+    pkb4: "Teuku Hamzah Husen, S.E., M.M",
+    pkb5: "Mujlizal, S.Ag",
+    pkb6: "Suharni Bustami, S.Pd",
+    pkb7: "Tgk. H. Syarifuddin, M.A",
+    gerindra1: "Fadhlullah",
+    pdip1: "Sofyan Dawood",
+    pdip2: "Jamaluddin Idham, S.H., M.H",
+    pdip5: "H. Ramli, MS",
+    pdip7: "H. Dahlan Jamaluddin, S.I.P",
+    golkar1: "Teuku Muhammad Nurlif, S.E",
+    golkar4: "Drs. H. T. Zulkarnaini Ampon Bang",
+    nasdem1: "Dr. Teuku Taufiqulhadi, M.Si",
+    nasdem2: "H. Muslim Ayub, S.H., M.M",
+    pks1: "Gufran",
+    pks2: "Rafli Kande",
+    pan5: "H. Nazaruddin Dek Gam",
+    demokrat1: "H. Teuku Riefki Harsya, B.Sc., M.T",
+    demokrat2: "H. T. Ibrahim, S.T., M.M",
+    demokrat3: "Teuku Rassya Isslamay Pasya",
+    ppp1: "Illiza Sa'aduddin Djamal, S.E",
+  };
+
   return (
     <div className="grid grid-cols-2 grid-rows-1  gap-2">
       <div className="border border-gray-300 shadow-md">
@@ -681,155 +725,37 @@ const Content = () => {
         </div>
       </div>
 
-      {/* <div className="border border-gray-300 shadow-md">
+      <div className="border border-gray-300 shadow-md">
         <div className="p-3 flex flex-col gap-y-2 ">
           <div className="font-bold text-gray-600 text-lg mb-2">
             10 Suara Caleg Terbanyak
           </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 align-middle text-right mr-3">
-              Irmawan, Sos.MM
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              M. Ramadhana Rusli Bintang, M.M
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="success"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Mahdalena, S.Hut
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Teuku Hamzah Husen, S.E., M.M
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Mujlizal, S.Ag.
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Suharni Bustami, S.Pd
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Tgk. H. Syarifuddin,M.A
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Tgk. H. Syarifuddin,M.A
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Tgk. H. Syarifuddin,M.A
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3">
-            <div className="font-bold text-base mb-1 text-right mr-3">
-              Tgk. H. Syarifuddin,M.A
-            </div>
-            <div className="col-span-2">
-              <ProgressBar
-                now={now}
-                variant="primary"
-                label={`0 Suara`}
-                style={{ fontStyle: "bold", fontSize: "16px", height: "20px" }}
-              />
-            </div>
+          <div className="grid grid-cols-1 gap-4">
+            {dataTopTenCaleg.map((caleg, index) => (
+              <div key={index} className="grid grid-cols-3 gap-y-2">
+                <div className="font-bold text-base mb-1 align-middle text-right mr-3">
+                  {namaCaleg[Object.keys(caleg)[0]]}
+                </div>
+                <div className="col-span-2">
+                  <ProgressBar
+                    variant={
+                      Object.keys(caleg)[0] === "pkb2" ? "success" : "primary"
+                    }
+                    label={`${Object.values(caleg)[0]} Suara`}
+                    style={{
+                      fontStyle: "bold",
+                      fontSize: "16px",
+                      height: "20px",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div> */}
+      </div>
 
-      <div className="border border-gray-300 col-span-2 shadow-md">
+      <div className="border border-gray-300 shadow-md">
         <div className="p-3 flex flex-col gap-y-2 ">
           <div className="font-bold text-gray-600 text-lg mb-2">
             Hasil Suara Partai
@@ -860,7 +786,7 @@ const Content = () => {
               <div className="col-span-2">
                 <ProgressBar
                   now={DataGerindra}
-                  variant="success"
+                  variant="primary"
                   label={`${DataGerindra} Suara`}
                   style={{
                     fontStyle: "bold",

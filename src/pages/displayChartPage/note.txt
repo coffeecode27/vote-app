@@ -1,11 +1,11 @@
-Suara Partai Kebangkitan Bangsa
-1. Irmawan, Sos. MM
-2. Muhammad Ramadhana Rusli Bintang, M.M
-3. Mahdalena, S.Hut
-4. Teuku Hamzah Husen, S.E., M.M
-5. Mujlizal, S.Ag.
-6. Suharni Bustami, S.Pd
-7. Tgk. H. Syarifuddin, M.A
+
+Irmawan, Sos. MM = pkb1
+Muhammad Ramadhana Rusli Bintang, M.M = pkb2
+Mahdalena, S.Hut
+Teuku Hamzah Husen, S.E., M.M
+ Mujlizal, S.Ag.
+Suharni Bustami, S.Pd
+Tgk. H. Syarifuddin, M.A
 Suara Partai Gerakan Indonesia Raya (GERINDRA)
 1. Fadhlullah
 Suara Partai Demokrasi Indonesia Perjuangan (PDIP)

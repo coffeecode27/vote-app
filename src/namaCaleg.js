@@ -1,4 +1,4 @@
-const namaCaleg = {
+export const namaCaleg = {
   pkb: {
     pkb1: "Irmawan, Sos. MM",
     pkb2: "Muhammad Ramadhana Rusli Bintang, M.M",

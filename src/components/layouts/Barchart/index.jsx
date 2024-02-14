@@ -6,7 +6,7 @@ import { pkb2, pkb1 } from "../../../state.js";
 const BarChart = () => {
   const dataPkb1 = useRecoilValue(pkb1);
   const dataPkb2 = useRecoilValue(pkb2);
-  const persenDuaDesimal = (dataPkb2 / 100000).toFixed(4) * 100;
+  const persenDuaDesimal = (dataPkb2 / 100000).toFixed(2) * 100;
 
   console.log(persenDuaDesimal);
   console.log(dataPkb1);
