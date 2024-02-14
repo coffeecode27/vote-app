@@ -1,0 +1,7 @@
+/* styles.css */
+
+.custom-progress-bar-success {
+  background-color: #e9ecef; /* Ganti #yourCustomColor dengan kode warna yang diinginkan */
+  border-color: #e9ecef; /* Ganti #yourCustomColor dengan kode warna yang diinginkan */
+  color: #ff4d4f; /* Ganti #yourCustomTextColor dengan kode warna teks yang diinginkan */
+}
