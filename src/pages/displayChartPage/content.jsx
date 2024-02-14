@@ -108,6 +108,17 @@ const Content = () => {
 
   useEffect(() => {
     // console.log(`top ten caleg ${topTenCalegHandler()}`);
+
+    const fetchData = async () => {
+      try {
+        const hasilToptenCaleg = await topTenCalegHandler();
+        setDataTopTenCaleg(hasilToptenCaleg);
+        console.log(dataTopTenCaleg);
+        // Lakukan sesuatu dengan dataCa
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
     const getData = async () => {
       try {
         const response = await fetch(
@@ -303,11 +314,16 @@ const Content = () => {
       }
     };
 
+    fetchData();
+    getData();
+
     const intervalId = setInterval(() => {
       getData();
+      fetchData();
       console.log(`Fetching data ${fetchCounter}`);
       setFetchCounter((prevCounter) => prevCounter + 1);
-    }, 20000); // 60000 milidetik = 1 menit
+    }, 10000);
+    return () => clearInterval(intervalId);
   }, [setData]);
 
   // Nama Caleg
