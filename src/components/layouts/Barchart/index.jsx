@@ -19,7 +19,7 @@ const BarChart = () => {
             Capaian target <br /> (100.000 Suara)
           </div>
           <div className="font-bold text-3xl mb-1">
-            Jumlah Suara Pemilih Saat ini <br /> {dataPkb1} suara (
+            Jumlah Suara Pemilih Saat ini <br /> {dataPkb2} suara (
             {persenDuaDesimal}
             %)
           </div>
