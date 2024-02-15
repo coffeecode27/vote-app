@@ -311,29 +311,165 @@ const Content = () => {
 
   // Nama Caleg
   const namaCaleg = {
-    pkb1: "Irmawan, Sos.MM",
-    pkb2: "M Ramadhana Rusli Bintang, M.M",
+    // Partai Kebangkitan Bangsa (PKB)
+    pkb1: "Irmawan, Sos. MM",
+    pkb2: "Muhammad Ramadhana Rusli Bintang, M.M",
     pkb3: "Mahdalena, S.Hut",
     pkb4: "Teuku Hamzah Husen, S.E., M.M",
-    pkb5: "Mujlizal, S.Ag",
-    pkb6: "Suharni Bustami, S.Pd",
+    pkb5: "Mujlisal, S.Ag",
+    pkb6: "drh Hasnidar",
     pkb7: "Tgk. H. Syarifuddin, M.A",
+
+    // Partai Gerakan Indonesia Raya (Gerindra)
     gerindra1: "Fadhlullah",
+    gerindra2: "Dra. Hj. ZULHAFAH",
+    gerindra3: "Drs. HASANUDDIN DARJO, M.M.",
+    gerindra4: "Ir. H. MAULISMAN HANAFIAH",
+    gerindra5: "Ir. MUDDATSTSIR KAMIL",
+    gerindra6: "ERLIN, S.E.",
+    gerindra7: "ZAITUN MHD",
+
+    // Partai Demokrasi Indonesia Perjuangan (PDI-P)
     pdip1: "Sofyan Dawood",
     pdip2: "Jamaluddin Idham, S.H., M.H",
+    pdip3: "YUNIATI",
+    pdip4: "RIFKI TAJUDDIN, S.E.",
     pdip5: "H. Ramli, MS",
+    pdip6: "PUSPITA FIRDA OKTYANI",
     pdip7: "H. Dahlan Jamaluddin, S.I.P",
+
+    // Partai Golongan Karya (Golkar)
     golkar1: "Teuku Muhammad Nurlif, S.E",
+    golkar2: "H. M. SALIM FAKHRY, S.E., M.M.",
+    golkar3: "HJ. SAMSIAR, S.E.",
     golkar4: "Drs. H. T. Zulkarnaini Ampon Bang",
+    golkar5: "Dr. H. M. SALEH.P, S.Pd.I., M.Si.",
+    golkar6: "NENI RUMIANTI DAULAY, S.E.",
+    golkar7: "T. M. ALI TAR",
+
+    // Partai NasDem
     nasdem1: "Dr. Teuku Taufiqulhadi, M.Si",
     nasdem2: "H. Muslim Ayub, S.H., M.M",
+    nasdem3: "Hj. Dra. Mediati Hafni Hanum, S.H., M.Kn., CPM.",
+    nasdem4: "TEUNGKU RAZUAN, S.H.",
+    nasdem5: "T. Iskandar Daod, S.E., M.Si.",
+    nasdem6: "Cut Sri Mainita",
+    nasdem7: "Suprijal Yusuf, S.H.",
+
+    // Partai Buruh
+    buruh1: "Habibi Inseun",
+    buruh2: "Mahadi Manik, S.Si., M.Si.",
+    buruh3: "Rosmana Dewi",
+    buruh4: "Sayed Masykur, S.T.",
+    buruh5: "Zarlina",
+    buruh6: "Hariyanto Latuheru",
+    buruh7: "Siti Sundari",
+
+    // Partai Gelombang
+    gelora1: "AZMI FAJRI USMAN",
+    gelora2: "TGK KHALIDI AL-DJADAMI",
+    gelora3: "KASUMIYATI",
+    gelora4: "NASRUDDIN AWL",
+    gelora5: "EDY SUPENO",
+    gelora6: "FANIA VIVI HIKMAWATI, S.E",
+    gelora7: "MOHARRIADI",
+
+    // Partai Keadilan Sejahtera (PKS)
     pks1: "Gufran",
     pks2: "Rafli Kande",
-    pan5: "H. Nazaruddin Dek Gam",
-    demokrat1: "H. Teuku Riefki Harsya, B.Sc., M.T",
-    demokrat2: "H. T. Ibrahim, S.T., M.M",
-    demokrat3: "Teuku Rassya Isslamay Pasya",
-    ppp1: "Illiza Sa'aduddin Djamal, S.E",
+    pks3: "FRIESKA INDAH SARI, S.E.",
+    pks4: "BUHARI SELIAN",
+    pks5: "SAID MUSTAJAB, S.Sos.",
+    pks6: "Ns. SINTA NELYSA, S.Kep.",
+    pks7: "Sriwahyuni",
+
+    // Partai Kebangkitan Nusantara (PKN)
+    pkn1: "YUDI KURNIA",
+    pkn2: "Amrinur Oktjaya",
+    pkn3: "Hj Seri peraini",
+    pkn4: "Yanti octavia",
+    pkn5: "NELY INDRAWATI",
+    pkn6: "NOLA NOLIA",
+
+    // Partai Hati Nurani (Hanura)
+    hanura1: "Prof. Dr. BACHTIAR ALY, M.A.",
+    hanura2: "Dr. H. ASFIFUDDIN, S.H., M.H.",
+    hanura3: "FITRIAH ISPANDI",
+    hanura4: "AL AMIN, S.H.",
+    hanura5: "INTAN KHAIRANI",
+    hanura6: "SRI ARIANA NINGSIH",
+    hanura7: "ADNAN YACOB, S.E.",
+
+    // Partai Garda Republik Indonesia (Garda)
+    garda1: "CHAIDIR FURRAZI NUR",
+    garda2: "PUTRI CHOIRUN NISYA",
+    garda3: "EGI KURNIA PUTRA",
+    garda4: "BENING LARASATI",
+    garda5: "T Iskandar S.T",
+    garda6: "SETYANI LARASATI",
+
+    // Partai Amanat Nasional (PAN)
+    pan1: "H. Nazaruddin Dek Gam",
+    pan2: "MOHD. ALFATAH, S.Ag.",
+    pan3: "Ir. Hj. FERRY SORAYA, M.S.I.E",
+    pan4: "Dewi marlina",
+    pan5: "Muhclis zulkifli",
+    pan6: "Gita Isna Yunita",
+    pan7: "ZULFITRI ARIFIN",
+
+    // Partai Bulan Bintang (PBB)
+    pbb1: "H. ERLI HASIM, S.H., S.Ag., M.I.Kom.",
+    pbb2: "Dr. TGK. H. MUHAMMAD YUS",
+    pbb3: "NURATIAH HANIM, A.Md.Kep.",
+    pbb4: "Salawati Dahlan M S, S.E.",
+    pbb5: "HAMZAH, S.Sos.I.",
+    pbb6: "Heri Ramunandar, S.H.",
+    pbb7: "SALAMUN, S.E.",
+
+    // Partai Demokrat
+    demokrat1: "H. TEUKU RIEFKY HARSYA, B.Sc., M.T.",
+    demokrat2: "H. T. IBRAHIM, S.T., M.M.",
+    demokrat3: "NURHAYATI",
+    demokrat4: "Khairullah",
+    demokrat5: "Tgk. HARMEN NURIQMAR, S.S.",
+    demokrat6: "RIZQA ZANIA",
+    demokrat7: "Teuku Rassya Isslamay Pasya",
+
+    // Partai Solidaritas Indonesia (PSI)
+    psi1: "Qausar Harta Yudana",
+    psi2: "AL-QUDRI, S.T.P.",
+    psi3: "Ercut Nova Sari",
+    psi4: "ARIEF MARTHA RAHADYAN",
+    psi5: "Ismaidi",
+    psi6: "Suci Nur Maizaroh",
+    psi7: "Slamet Satyawati",
+
+    // Partai Perindo
+    perindo1: "Mayjen. TNI (Purn.) ABDUL HAFIL FUDDIN, S.H., S.I.P., M.H.",
+    perindo2: "AZWAR RAMLI",
+    perindo3: "Intan Monika",
+    perindo4: "DENY ZULFIKAR",
+    perindo5: "Abdon Siagian",
+    perindo6: "Siwi asri mopri ratna",
+    perindo7: "DWI AGUS SETIYORINI",
+
+    // Partai Persatuan Pembangunan (PPP)
+    ppp1: "AMRI M ALI",
+    ppp2: "Illiza Sa'aduddin Djamal, S.E",
+    ppp3: "HILMAN ISMAIL METAREUM, S.E.",
+    ppp4: "H. ANSARI IDRUS SAMBO, S.H.",
+    ppp5: "HARMANIAR",
+    ppp6: "SAID SAIFUL AL MAHDALI",
+    ppp7: "Cut rana wati",
+
+    // Partai Ummat
+    umat1: "H. JAMAI SUNI, S.E., M.M.",
+    umat2: "H. ANAS BIDIN NYAK SYECH, S.Ag.",
+    umat3: "Cut Evita",
+    umat4: "Drs. USTAZ ARSYAD AHJON",
+    umat5: "Drs. SAIFUDDIN SAMIN",
+    umat6: "FARIDAH, S.E.",
+    umat7: "EFFRIDANDA M., S.E.",
   };
 
   return (
@@ -747,32 +883,45 @@ const Content = () => {
       </div>
 
       <div className="border border-gray-300 shadow-md">
-        <div className="p-3 flex flex-col gap-y-2 ">
+        <div className="p-3 flex flex-col gap-y-2">
           <div className="font-bold text-gray-600 text-lg mb-2">
             10 Suara Caleg Terbanyak
           </div>
           <div className="grid grid-cols-1 gap-4">
-            {dataTopTenCaleg.map((caleg, index) => (
-              <div key={index} className="grid grid-cols-3 gap-y-2">
-                <div className="font-bold text-base mb-1 align-middle text-right mr-3">
-                  {namaCaleg[Object.keys(caleg)[0]]}
-                </div>
-                <div className="col-span-2">
-                  <ProgressBar
-                    max={100000}
-                    variant={
-                      Object.keys(caleg)[0] === "pkb2" ? "success" : "primary"
-                    }
-                    label={`${Object.values(caleg)[0]} Suara`}
-                    style={{
-                      fontStyle: "bold",
-                      fontSize: "16px",
-                      height: "20px",
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
+            {dataTopTenCaleg.length > 0 && // Pengecekan apakah dataTopTenCaleg tidak kosong
+              dataTopTenCaleg.map((caleg, index) => {
+                const calegKey = Object.keys(caleg)[0];
+                const calegValue = Object.values(caleg)[0];
+
+                // Pengecekan jika nilai Caleg bukan 0
+                if (calegValue !== 0) {
+                  return (
+                    <div key={index} className="grid grid-cols-3 gap-y-2">
+                      <div className="font-bold text-base mb-1 align-middle text-right mr-3">
+                        {namaCaleg[calegKey]}
+                      </div>
+                      <div className="col-span-2">
+                        <ProgressBar
+                          max={100000}
+                          variant={calegKey === "pkb2" ? "success" : "primary"}
+                          label={`${calegValue} Suara`}
+                          style={{
+                            fontStyle: "bold",
+                            fontSize: "16px",
+                            height: "20px",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                }
+                // Jika nilai Caleg adalah 0, maka jangan tampilkan
+                return null;
+              })}
+            {/* Tampilkan pesan jika tidak ada data Caleg dengan nilai selain 0 */}
+            {!dataTopTenCaleg.some(
+              (caleg) => Object.values(caleg)[0] !== 0
+            ) && <div className="text-gray-500">Tidak ada data Caleg.</div>}
           </div>
         </div>
       </div>
