@@ -1,23 +1,25 @@
 import axios from "axios";
 import https from "https";
-import ObjData from "./objData";
+import { objData, mappingData } from "./objData.js";
 
 const boundOfData = async () => {
-  try {
-    const response = await axios.get(
-      "https://vote.ramadhanarb.com:8888/api/verd/c1"
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
+  const a = await axios.get("https://vote.ramadhanarb.com:8888/api/verd/c1");
+  return a.data.data;
 };
 
 const accumulationData = async (data) => {
-  const datas = data.data;
-  const accumulatedData = ObjData(datas);
+  if (data.length === 1) {
+    return mappingData(data);
+  }
+  const accumulatedData = objData(data);
   return accumulatedData;
+};
+
+const seperateWithOneArray = async (result) => {
+  const transformedData = Object.entries(result[0]).map(([key, value]) => ({
+    [key]: value,
+  }));
+  return transformedData;
 };
 
 const seperateObjIntoArrOfObj = async (result) => {
@@ -31,18 +33,18 @@ const sortData = async (hasil) => {
     const valueB = Object.values(b)[0];
     return valueB - valueA;
   });
-  console.log(sortedData, "DATA YANG SUDAH DI SORT");
+
   return sortedData;
 };
 
 const finalTopTenSuper = async (data) => {
-  console.log(data, "SUBARASHI");
   return data.slice(0, 10);
 };
 
 export {
   boundOfData,
   accumulationData,
+  seperateWithOneArray,
   seperateObjIntoArrOfObj,
   sortData,
   finalTopTenSuper,

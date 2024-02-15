@@ -45,7 +45,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./content.css";
 const Content = () => {
-  const [fetchCounter, setFetchCounter] = useState(1);
+  const [fetchCounter, setFetchCounter] = useState(0);
   const [dataTopTenCaleg, setDataTopTenCaleg] = useState([]);
   // state untuk caleg semua caleg PKB
   const [data, setData] = useRecoilState(recoilVote);
@@ -92,24 +92,7 @@ const Content = () => {
   const [DataDemokrat, setDataDemokrat] = useRecoilState(demokrat);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const hasilToptenCaleg = await topTenCalegHandler();
-        setDataTopTenCaleg(hasilToptenCaleg);
-        console.log(dataTopTenCaleg);
-        // Lakukan sesuatu dengan dataCa
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    // console.log(`top ten caleg ${topTenCalegHandler()}`);
-
-    const fetchData = async () => {
+    const fetchDataCaleg = async () => {
       try {
         const hasilToptenCaleg = await topTenCalegHandler();
         setDataTopTenCaleg(hasilToptenCaleg);
@@ -172,76 +155,76 @@ const Content = () => {
         // Batas setDataPKB
 
         const AcehBesarData = data.filter(
-          (item) => item.kabupaten === "Aceh Besar"
+          (item) => item?.kabupaten === "Aceh Besar"
         );
 
-        setDataAcehBesar(AcehBesarData[0].pkb2);
+        setDataAcehBesar(AcehBesarData[0]?.pkb2);
 
         const AcehJayaData = data.filter(
-          (item) => item.kabupaten === "Aceh Jaya"
+          (item) => item?.kabupaten === "Aceh Jaya"
         );
-        setDataAcehJaya(AcehJayaData[0].pkb2);
+        setDataAcehJaya(AcehJayaData[0]?.pkb2);
 
         const AcehSingkilData = data.filter(
-          (item) => item.kabupaten === "Aceh Singkil"
+          (item) => item?.kabupaten === "Aceh Singkil"
         );
-        setDataAcehSingkil(AcehSingkilData[0].pkb2);
+        setDataAcehSingkil(AcehSingkilData[0]?.pkb2);
 
-        const PidieData = data.filter((item) => item.kabupaten === "Pidie");
-        setDataPidie(PidieData[0].pkb2);
+        const PidieData = data.filter((item) => item?.kabupaten === "Pidie");
+        setDataPidie(PidieData[0]?.pkb2);
 
-        const SubussalamData = data.filter(
-          (item) => item.kabupaten === "Subussalam"
+        const SubussalamData = data?.filter(
+          (item) => item?.kabupaten === "Subussalam"
         );
-        setDataSubussalam(SubussalamData[0].pkb2);
+        setDataSubussalam(SubussalamData[0]?.pkb2);
 
         const PidieJayaData = data.filter(
-          (item) => item.kabupaten === "Pidie Jaya"
+          (item) => item?.kabupaten === "Pidie Jaya"
         );
-        setDataPidieJaya(PidieJayaData[0].pkb2);
+        setDataPidieJaya(PidieJayaData[0]?.pkb2);
 
-        const SabangData = data.filter((item) => item.kabupaten === "Sabang");
-        setDataSabang(SabangData[0].pkb2);
+        const SabangData = data.filter((item) => item?.kabupaten === "Sabang");
+        setDataSabang(SabangData[0]?.pkb2);
 
         const GayoLuesData = data.filter(
-          (item) => item.kabupaten === "Gayo Lues"
+          (item) => item?.kabupaten === "Gayo Lues"
         );
-        setDataGayoLues(GayoLuesData[0].pkb2);
+        setDataGayoLues(GayoLuesData[0]?.pkb2);
 
         const BandaAcehData = data.filter(
-          (item) => item.kabupaten === "Banda Aceh"
+          (item) => item?.kabupaten === "Banda Aceh"
         );
-        setDataBandaAceh(BandaAcehData[0].pkb2);
+        setDataBandaAceh(BandaAcehData[0]?.pkb2);
 
         const AcehBaratData = data.filter(
-          (item) => item.kabupaten === "Aceh Barat"
+          (item) => item?.kabupaten === "Aceh Barat"
         );
-        setDataAcehBarat(AcehBaratData[0].pkb2);
+        setDataAcehBarat(AcehBaratData[0]?.pkb2);
 
         const SimeulueData = data.filter(
-          (item) => item.kabupaten === "Simeulue"
+          (item) => item?.kabupaten === "Simeulue"
         );
-        setDataSimeulue(SimeulueData[0].pkb2);
+        setDataSimeulue(SimeulueData[0]?.pkb2);
 
         const AcehSelatanData = data.filter(
-          (item) => item.kabupaten === "Aceh Selatan"
+          (item) => item?.kabupaten === "Aceh Selatan"
         );
-        setDataAcehSelatan(AcehSelatanData[0].pkb2);
+        setDataAcehSelatan(AcehSelatanData[0]?.pkb2);
 
         const AcehBaratDayaData = data.filter(
-          (item) => item.kabupaten === "Aceh Barat Daya"
+          (item) => item?.kabupaten === "Aceh Barat Daya"
         );
-        setDataAcehBaratDaya(AcehBaratDayaData[0].pkb2);
+        setDataAcehBaratDaya(AcehBaratDayaData[0]?.pkb2);
 
         const NaganrayaData = data.filter(
-          (item) => item.kabupaten === "Nagan Raya"
+          (item) => item?.kabupaten === "Nagan Raya"
         );
-        setDataNaganRaya(NaganrayaData[0].pkb2);
+        setDataNaganRaya(NaganrayaData[0]?.pkb2);
 
         const AcehTenggaraData = data.filter(
-          (item) => item.kabupaten === "Aceh Tenggara"
+          (item) => item?.kabupaten === "Aceh Tenggara"
         );
-        setDataAcehTenggara(AcehTenggaraData[0].pkb2);
+        setDataAcehTenggara(AcehTenggaraData[0]?.pkb2);
 
         // ================ batas state total kabupaten pak madan ========================
 
@@ -314,17 +297,17 @@ const Content = () => {
       }
     };
 
-    fetchData();
+    fetchDataCaleg();
     getData();
 
     const intervalId = setInterval(() => {
       getData();
-      fetchData();
-      console.log(`Fetching data ${fetchCounter}`);
+      fetchDataCaleg();
       setFetchCounter((prevCounter) => prevCounter + 1);
+      console.log(`Fetching data ${fetchCounter}`);
     }, 10000);
     return () => clearInterval(intervalId);
-  }, [setData]);
+  }, [setData, fetchCounter]);
 
   // Nama Caleg
   const namaCaleg = {
@@ -367,6 +350,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb1}
                 variant="primary"
                 label={`${DataPkb1} Suara`}
@@ -381,6 +365,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb2}
                 variant="success"
                 label={`${DataPkb2} Suara`}
@@ -395,6 +380,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb3}
                 variant="primary"
                 label={`${DataPkb3} Suara`}
@@ -409,6 +395,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb4}
                 variant="primary"
                 label={`${DataPkb4} Suara`}
@@ -423,6 +410,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb5}
                 variant="primary"
                 label={`${DataPkb5} Suara`}
@@ -437,6 +425,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb6}
                 variant="primary"
                 label={`${DataPkb6} Suara`}
@@ -451,6 +440,7 @@ const Content = () => {
             </div>
             <div className="col-span-2">
               <ProgressBar
+                max={100000}
                 now={DataPkb7}
                 variant="primary"
                 label={`${DataPkb7} Suara`}
@@ -474,6 +464,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   variant="primary"
                   now={DataAcehBesar}
                   label={`${DataAcehBesar} Suara`}
@@ -492,6 +483,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataBandaAceh}
                   variant="success"
                   label={`${DataBandaAceh} Suara`}
@@ -510,6 +502,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehJaya}
                   variant="primary"
                   label={`${DataAcehJaya} Suara`}
@@ -528,6 +521,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehBarat}
                   variant="primary"
                   label={`${DataAcehBarat} Suara`}
@@ -546,6 +540,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehSingkil}
                   variant="primary"
                   label={`${DataAcehSingkil} Suara`}
@@ -564,6 +559,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataSimeulue}
                   variant="primary"
                   label={`${DataSimeulue} Suara`}
@@ -582,6 +578,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataPidie}
                   variant="primary"
                   label={`${DataPidie} Suara`}
@@ -600,6 +597,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehSelatan}
                   variant="primary"
                   label={`${DataAcehSelatan} Suara`}
@@ -618,6 +616,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataSubussalam}
                   variant="primary"
                   label={`${DataSubussalam} Suara`}
@@ -636,6 +635,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehBaratDaya}
                   variant="primary"
                   label={`${DataAcehBaratDaya} Suara`}
@@ -654,6 +654,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataPidieJaya}
                   variant="primary"
                   label={`${DataPidieJaya} Suara`}
@@ -672,6 +673,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataNaganRaya}
                   variant="primary"
                   label={`${DataNaganRaya} Suara`}
@@ -690,6 +692,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataSabang}
                   variant="primary"
                   label={`${DataSabang} Suara`}
@@ -708,6 +711,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataAcehTenggara}
                   variant="primary"
                   label={`${DataAcehTenggara} Suara`}
@@ -726,6 +730,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={80000}
                   now={DataGayoLues}
                   variant="primary"
                   label={`${DataGayoLues} Suara`}
@@ -754,6 +759,7 @@ const Content = () => {
                 </div>
                 <div className="col-span-2">
                   <ProgressBar
+                    max={100000}
                     variant={
                       Object.keys(caleg)[0] === "pkb2" ? "success" : "primary"
                     }
@@ -771,7 +777,7 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="border border-gray-300 shadow-md">
+      <div className="border border-gray-300  shadow-md">
         <div className="p-3 flex flex-col gap-y-2 ">
           <div className="font-bold text-gray-600 text-lg mb-2">
             Hasil Suara Partai
@@ -783,6 +789,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPkb}
                   variant="primary"
                   label={`${DataPkb} Suara`}
@@ -801,6 +808,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataGerindra}
                   variant="primary"
                   label={`${DataGerindra} Suara`}
@@ -819,6 +827,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPdip}
                   variant="primary"
                   label={`${DataPdip} Suara`}
@@ -837,6 +846,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataGolkar}
                   variant="primary"
                   label={`${DataGolkar} Suara`}
@@ -855,6 +865,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataDemokrat}
                   variant="primary"
                   label={`${DataDemokrat} Suara`}
@@ -873,6 +884,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPks}
                   variant="primary"
                   label={`${DataPks} Suara`}
@@ -891,6 +903,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPkn}
                   variant="primary"
                   label={`${DataPkn} Suara`}
@@ -909,6 +922,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataHanura}
                   variant="primary"
                   label={`${DataHanura} Suara`}
@@ -927,6 +941,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPan}
                   variant="primary"
                   label={`${DataPan} Suara`}
@@ -945,6 +960,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPbb}
                   variant="primary"
                   label={`${DataPbb} Suara`}
@@ -963,6 +979,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPsi}
                   variant="primary"
                   label={`${DataPsi} Suara`}
@@ -981,6 +998,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPerindo}
                   variant="primary"
                   label={`${DataPerindo} Suara`}
@@ -999,6 +1017,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPpp}
                   variant="primary"
                   label={`${DataPpp} Suara`}
@@ -1017,6 +1036,7 @@ const Content = () => {
               </div>
               <div className="col-span-2">
                 <ProgressBar
+                  max={200000}
                   now={DataPartaiUmmat}
                   variant="primary"
                   label={`${DataPartaiUmmat} Suara`}
